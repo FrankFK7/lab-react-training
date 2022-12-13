@@ -1,15 +1,12 @@
-import React from 'react';
+import { rgbToHex } from '../utils/utilities.js';
 
 const BoxColor = ({ r, g, b }) => {
-  const style = {
-    backgroundColor: `rgb(${r},${g},${b})`,
-    padding: '30px',
-    textAlign: 'center',
-  };
-
   return (
-    <div className="card" style={style}>
-      rgb({r},{g},{b})
+    <div style={{ backgroundColor: rgbToHex(r, g, b) }}>
+      <p>
+        rgb({r},{g},{b})
+      </p>
+      <p>{rgbToHex(r, g, b)}</p>
     </div>
   );
 };

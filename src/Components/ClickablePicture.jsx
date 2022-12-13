@@ -4,19 +4,21 @@ import imgClicked from '../assets/images/maxence-glasses.png'
 
 
 const ClickablePicture = () => {
+  const [pictureClicked, setPictureClicked] = useState(false);
 
-    const [isClicked, setIsClicked] = useState(false)
-
-    const togglePicture = () => {
-        setIsClicked((prevClicked) => !prevClicked)
-    }
-
+  const togglePicture = () => {
+    setPictureClicked((prevClick) => !prevClick);
+  };
 
   return (
     <div>
-    <img src={isClicked ? imgClicked : img} alt="" onClick={togglePicture}/>
+      <img
+        src={pictureClicked ? imgClicked : img}
+        alt="SunglassProfile"
+        onClick={togglePicture}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default ClickablePicture
+export default ClickablePicture;

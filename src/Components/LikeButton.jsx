@@ -1,23 +1,19 @@
 import { useState } from 'react';
+import { randomValueGenerate } from '../utils/utilities';
 
 const LikeButton = () => {
+  const [counterValue, setCounterValue] = useState(0);
   const colors = ['purple', 'blue', 'green', 'yellow', 'orange', 'red'];
-  const [liked, setLiked] = useState(0);
 
-  const randomColor = (colors) => {
-    return colors[Math.floor(Math.random() * colors.length)];
-  };
-
-  const handleClick = () => {
-    setLiked((prevLiked) => prevLiked + 1);
-  };
   return (
     <div>
       <button
-        style={{ backgroundColor: randomColor(colors) }}
-        onClick={handleClick}
+        style={{ backgroundColor: randomValueGenerate(colors) }}
+        onClick={() =>
+          setCounterValue((prevCounterValue) => ++prevCounterValue)
+        }
       >
-        {liked} Likes
+        {counterValue} likes{' '}
       </button>
     </div>
   );
